@@ -25,7 +25,7 @@ omg build
 
 ##### Send SMS
 ```sh
-$
+$ omg run send -a from=<PHONE_NUMBER> -a to=<PHONE_NUMBER> -a message=<MESSAGE_TEXT_BODY> -e ACCOUNT_SID=<ACCOUNT_SID> -e AUTH_TOKEN=<AUTH_TOKEN>
 ```
 
 ## License

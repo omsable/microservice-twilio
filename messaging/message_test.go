@@ -10,11 +10,11 @@ import (
 	"net/http/httptest"
 )
 
-var _ = Describe("Send email", func() {
+var _ = Describe("Send SMS", func() {
 
-	email := Email{From: "demot636@gmail.com", Password: "Test@123", To: "rohits@heaptrace.com", Subject: "Testing microservice", Body: "Any body message to test", SMTPHost: "smtp.gmail.com", SMTPPort: "587"}
+	sms := SMS{From: "+910123654789", To: "+910123456789", Message: "Testing twilio microservice"}
 	requestBody := new(bytes.Buffer)
-	errr := json.NewEncoder(requestBody).Encode(email)
+	errr := json.NewEncoder(requestBody).Encode(sms)
 	if errr != nil {
 		log.Fatal(errr)
 	}
@@ -27,7 +27,7 @@ var _ = Describe("Send email", func() {
 	handler := http.HandlerFunc(Send)
 	handler.ServeHTTP(recorder, request)
 
-	Describe("Send email message", func() {
+	Describe("Send sms message", func() {
 		Context("send", func() {
 			It("Should result http.StatusOK", func() {
 				Expect(recorder.Code).To(Equal(http.StatusOK))
@@ -36,35 +36,28 @@ var _ = Describe("Send email", func() {
 	})
 })
 
-var _ = Describe("Received email", func() {
+var _ = Describe("Send SMS negative test", func() {
 
-	var received Subscribe
-	var data RequestParam
-	data.Username = "demot636@gmail.com"
-	data.Password = "Test@123"
-	data.Pattern = "dddd"
-	data.ImapHost = "imap.gmail.com"
-	data.ImapPort = "993"
-	received.Data = data
+	sms := []byte(`{"status":false}`)
 
 	requestBody := new(bytes.Buffer)
-	errr := json.NewEncoder(requestBody).Encode(received)
+	errr := json.NewEncoder(requestBody).Encode(sms)
 	if errr != nil {
 		log.Fatal(errr)
 	}
 
-	request, err := http.NewRequest("POST", "/receive", requestBody)
+	request, err := http.NewRequest("POST", "/send", requestBody)
 	if err != nil {
 		log.Fatal(err)
 	}
 	recorder := httptest.NewRecorder()
-	handler := http.HandlerFunc(Receiver)
+	handler := http.HandlerFunc(Send)
 	handler.ServeHTTP(recorder, request)
 
-	Describe("received email message", func() {
-		Context("received", func() {
+	Describe("Send sms message", func() {
+		Context("send", func() {
 			It("Should result http.StatusOK", func() {
-				Expect(recorder.Code).To(Equal(http.StatusOK))
+				Expect(recorder.Code).To(Equal(http.StatusBadRequest))
 			})
 		})
 	})
