@@ -32,5 +32,5 @@ $ omg run send -a from=<PHONE_NUMBER> -a to=<PHONE_NUMBER> -a message=<MESSAGE_T
 **Note**: the OMG CLI requires [Docker](https://docs.docker.com/install/) to be installed.
 
 ## License
-[MIT License](https://github.com/HeaptraceTechnologyCollection/microservice-trello/blob/master/LICENSE).
+[MIT License](https://github.com/omg-services/microservice-twilio/blob/master/LICENSE).
 
