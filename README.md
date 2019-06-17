@@ -9,7 +9,7 @@ An OMG service for Twilio, it allows to send SMS.
 
 ##### Create Board
 ```coffee
->>> trello send from:'phoneNumber' to:'phoneNumber' message:'messageText' 
+>>> twilio send from:'phoneNumber' to:'phoneNumber' message:'messageText' 
 {
   "sid": "sid",
   "account_sid": "account_sid",
