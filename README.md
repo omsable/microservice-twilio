@@ -33,4 +33,3 @@ $ omg run send -a from=<PHONE_NUMBER> -a to=<PHONE_NUMBER> -a message=<MESSAGE_T
 
 ## License
 [MIT License](https://github.com/omg-services/microservice-twilio/blob/master/LICENSE).
-
