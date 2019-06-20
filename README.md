@@ -7,7 +7,7 @@ An OMG service for Twilio, it allows to send SMS.
 
 ## Usage in [Storyscript](https://storyscript.io/)
 
-##### Create Board
+##### Send SMS
 ```coffee
 >>> twilio send from:'phoneNumber' to:'phoneNumber' message:'messageText' 
 {
