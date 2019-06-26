@@ -31,7 +31,7 @@ actions:
         type: string
         in: requestBody
         required: true
-        help: The recever number. 
+        help: The receiver number. 
       message: 
         type: string
         in: requestBody
