@@ -1,7 +1,8 @@
 # _Twilio_ OMG Microservice (GOLANG)
 
 [![Open Microservice Guide](https://img.shields.io/badge/OMG%20Enabled-👍-green.svg?)](https://microservice.guide)
-<!-- [![Build Status](https://travis-ci.com/heaptracetechnology/microservice-mail.svg?branch=master)](https://travis-ci.com/heaptracetechnology/microservice-mail) -->
+[![Build Status](https://travis-ci.com/omg-services/microservice-twilio.svg?branch=master)](https://travis-ci.com/omg-services/microservice-twilio)
+[![codecov](https://codecov.io/gh/omg-services/microservice-twilio/branch/master/graph/badge.svg)](https://codecov.io/gh/omg-services/microservice-twilio)
 
 An OMG service for Twilio, it allows to send SMS.
 
