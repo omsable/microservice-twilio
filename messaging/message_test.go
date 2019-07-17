@@ -8,11 +8,21 @@ import (
 	"log"
 	"net/http"
 	"net/http/httptest"
+	"os"
+)
+
+var (
+	accountSID = os.Getenv("TWILIO_ACCOUNT_SID")
+	authToken  = os.Getenv("TWILIO_AUTH_TOKEN")
+	from       = os.Getenv("TWILIO_FROM")
+	to         = os.Getenv("TWILIO_TO")
 )
 
 var _ = Describe("Send SMS", func() {
 
-	sms := SMS{From: "+910123654789", To: "+910123456789", Message: "Testing twilio microservice"}
+	os.Setenv("ACCOUNT_SID", accountSID)
+	os.Setenv("AUTH_TOKEN", authToken)
+	sms := SMS{From: from, To: to, Message: "Testing twilio microservice"}
 	requestBody := new(bytes.Buffer)
 	errr := json.NewEncoder(requestBody).Encode(sms)
 	if errr != nil {
